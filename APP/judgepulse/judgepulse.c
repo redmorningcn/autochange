@@ -37,10 +37,10 @@ void    printfflg(void)
        (u8)gs_pulsech[6].flg,   
        (u8)gs_pulsech[7].flg);   
 
-    printfcom1("\r\n∆µ¬  ");
+    //printfcom1("\r\n∆µ¬  ");
     for(u8 i = 0 ;i < 8;i++)
     {
-        printfcom1("\t%5d",84000000/(gs_pulsech[i].period*9));
+        //printfcom1("\t%5d",84000000/(gs_pulsech[i].period*9));
     }
 }
 
@@ -116,7 +116,7 @@ void    JudgemultichPulse(void)
                 if( gs_pulsech[i].frqerrtimes > 800)                        //»¶∞Î
                 {
                     if((gs_pulsech[i].flg & (0x01 << CH_ERR_FRQ)) == 0){ 
-                        printfcom1("\r\nÕ®µ¿∆µ¬ π ’œCH%d£∫err %d",i,gs_pulsech[i].frqerrtimes);
+                        //printfcom1("\r\nÕ®µ¿∆µ¬ π ’œCH%d£∫err %d",i,gs_pulsech[i].frqerrtimes);
                         gs_pulsech[i].flg |= (0x01 << CH_ERR_FRQ);      //∆µ¬ π ’
                         gs_runpara.flg |= (0x01<<PLUSE_STORE);          //◊¥Ã¨±£¥Ê
                     }
@@ -135,7 +135,7 @@ void    JudgemultichPulse(void)
                     
                     if((gs_pulsech[i].flg & (0x01 << CH_ERR_FRQ)) )
                     { 
-                        printfcom1("\r\nÕ®µ¿∆µ¬ π ’œCH%d«Â≥˝",i);
+                        //printfcom1("\r\nÕ®µ¿∆µ¬ π ’œCH%d«Â≥˝",i);
                         gs_pulsech[i].flg   &= ~(0x01 << CH_ERR_FRQ);   //∆µ¬ «Â≥˝
                         gs_runpara.flg      |= (0x01<<PLUSE_STORE);     //◊¥Ã¨±£¥Ê
                     }
@@ -178,7 +178,7 @@ void    JudgeonechPulse(void)
             
             if(period < ONE_KILM_PERIOD/1000)                                //ÀŸ∂»¥Û”⁄1000km/h£¨»œŒ™¥ÌŒÛÕÀ≥ˆ
             {
-                printfcom1("\r\nÕ®µ¿°æ%d°ø∆µ¬ π˝øÏ");
+                //printfcom1("\r\nÕ®µ¿°æ%d°ø∆µ¬ π˝øÏ");
                 break;
             }
 //ø™ª˙≈–∂œ,»Áπ˚ø™ª˙—°‘ÒÕ®µ¿π ’œ£¨«–ªªÕ®µ¿
@@ -259,7 +259,7 @@ void    JudgeonechPulse(void)
 
                            BSP_Sel_GPIO_Init();
 
-                           printfcom1("\r\n ÷˜∂Ø…Ë÷√Œ™Õ¨≤‡");
+                           //printfcom1("\r\n ÷˜∂Ø…Ë÷√Œ™Õ¨≤‡");
                         }
                     }
                 }
@@ -283,12 +283,12 @@ void    JudgeonechPulse(void)
                             
                             BSP_Sel_GPIO_Init();
 
-                            printfcom1("\r\n ÷˜∂Ø…Ë÷√Œ™“Ï≤‡");
+                            //printfcom1("\r\n ÷˜∂Ø…Ë÷√Œ™“Ï≤‡");
                         }
                     }                    
                 }
                 
-                //printfcom1("\r\n %d,%d,%d,%d",sinsor1phase,sinsor2phase,samesidetimes,difsidetimes);
+                ////printfcom1("\r\n %d,%d,%d,%d",sinsor1phase,sinsor2phase,samesidetimes,difsidetimes);
             }
 /////////////////////////////////////////////////////////////////////////////////////////////            
 
@@ -310,7 +310,7 @@ void    JudgeonechPulse(void)
                         
                         if(subspeedtimes > (workchnum +4)* 20)
                         {
-                            printfcom1("\r\n ºıÀŸ%d",subspeedtimes);
+                            //printfcom1("\r\n ºıÀŸ%d",subspeedtimes);
                             //movenulflg = 2;
                             gs_runpara.flg |= (0x01 <<SUB_SPEED_FLG);
                         }
@@ -322,8 +322,8 @@ void    JudgeonechPulse(void)
                         if(subspeedtimes)
                             subspeedtimes--; 
                         
-                        if(addspeedtimes > (workchnum + 4) * 20)
-                            printfcom1("\r\n  º”ÀŸ%d",addspeedtimes);
+                        if(addspeedtimes > (workchnum + 4) * 20);
+                            //printfcom1("\r\n  º”ÀŸ%d",addspeedtimes);
                     }else{
                         
                         if(subspeedtimes)
@@ -333,7 +333,7 @@ void    JudgeonechPulse(void)
                             addspeedtimes--;
                     }
                       
-                   // printfcom1("\r\n addspeedtimes %d£¨%d",addspeedtimes,subspeedtimes);
+                   // //printfcom1("\r\n addspeedtimes %d£¨%d",addspeedtimes,subspeedtimes);
                 }
                         ///////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -349,7 +349,7 @@ void    JudgeonechPulse(void)
                 {
                     if((gs_pulsech[i].flg & (0x01 << CH_IN)) == 0){
                         gs_pulsech[i].flg |= (0x01<<CH_IN);             //’˝≥£100∏ˆ¬ˆ≥Â£¨»œŒ™”––≈∫≈ ‰»Î
-                        printfcom1("\r\nÕ®µ¿[%d],”––≈∫≈ ‰»Î",i);
+                        //printfcom1("\r\nÕ®µ¿[%d],”––≈∫≈ ‰»Î",i);
                     }                        
                 }
 
@@ -362,7 +362,7 @@ void    JudgeonechPulse(void)
                     {
                         gs_pulsech[i].flg   &= ~(0x01 << CH_ERR_LOSE);  //|(0x01 << CH_ERR_FRQ)); //Õ®µ¿ª÷∏¥
                         gs_runpara.flg      |= (0x01<<PLUSE_STORE);             //◊¥Ã¨±£¥Ê
-                        printfcom1("\r\n∂™¬ˆ≥ÂÕ®µ¿%d£¨–≈∫≈ª÷∏¥",i);
+                        //printfcom1("\r\n∂™¬ˆ≥ÂÕ®µ¿%d£¨–≈∫≈ª÷∏¥",i);
                     }                
 
                     gs_pulsech[i].worktimes = 1000;                     
@@ -376,7 +376,7 @@ void    JudgeonechPulse(void)
                 //if(gs_pulsech[i].errtimes > 0)                           //≤ªÀ≥±„«Â¡„£¨π˝¬À∏…»≈
                 //if((gs_runpara.flg &(0x01 <<SUB_SPEED_FLG)))    
                     gs_pulsech[i].worktimes = 0;                            //–≈∫≈Œ Ã‚£¨÷ÿ–¬º∆À„’˝≥£π§◊˜¥Œ ˝
-                 //printfcom1("\r\n %d÷‹∆⁄∆´≤Ó÷µ%d£¨%d£¨¥ÌŒÛ¥Œ ˝£∫%d,◊‹¬ˆ≥Â ˝ %d",i,period,lstperiod,gs_pulsech[i].errtimes,l_allplusecnt);
+                 ////printfcom1("\r\n %d÷‹∆⁄∆´≤Ó÷µ%d£¨%d£¨¥ÌŒÛ¥Œ ˝£∫%d,◊‹¬ˆ≥Â ˝ %d",i,period,lstperiod,gs_pulsech[i].errtimes,l_allplusecnt);
                 
                 //if((gs_pulsech[i].flg & (0x01<<CH_IN)))                 //–≈∫≈Œ»∂®∫Û£¨‘ŸΩ¯––∂™¬ˆ≥Â
                 {
@@ -400,7 +400,7 @@ void    JudgeonechPulse(void)
                     if((gs_pulsech[i].flg &     (0x01 << CH_IN)) )
                         gs_pulsech[i].flg &=    ~(0x01 << CH_IN);          ////±Íº«Õ®µ¿Œﬁ–≈∫≈  
                     
-                    printfcom1("\r\nÕ®µ¿%d∂™¬ˆ≥Âπ ’œ",i);
+                    //printfcom1("\r\nÕ®µ¿%d∂™¬ˆ≥Âπ ’œ",i);
                 }
             }
             
@@ -456,7 +456,7 @@ void    JudgeonechPulse(void)
 //                       if((gs_pulsech[j].flg & (0x01 << CH_IN)))
 //                        {
 //                            gs_pulsech[j].flg &= ~(0x01 << CH_IN);  //±Íº«Õ®µ¿Œﬁ–≈∫≈  
-//                            printfcom1("\r\n Õ®µ¿>°æ %d °øŒﬁ ‰»Î %x",j, (u8)gs_pulsech[j].flg);
+//                            //printfcom1("\r\n Õ®µ¿>°æ %d °øŒﬁ ‰»Î %x",j, (u8)gs_pulsech[j].flg);
 //                        }   
 //                    }
 //                    
@@ -490,7 +490,7 @@ void    JudgeonechPulse(void)
                             gs_pulsech[i].flg &= ~(0x01 << CH_IN);  //±Íº«Õ®µ¿Œﬁ–≈∫≈ 
                             gs_runpara.flg      |= (0x01 << PLUSE_STORE);           //◊¥Ã¨±£¥Ê
                             
-                            printfcom1("\r\n Õ®µ¿°æ%d°øŒﬁ ‰»Î %x",i, gs_pulsech[i].flg);
+                            //printfcom1("\r\n Õ®µ¿°æ%d°øŒﬁ ‰»Î %x",i, gs_pulsech[i].flg);
                         }                        
                         
                         u8 tmp = 0;
@@ -505,7 +505,7 @@ void    JudgeonechPulse(void)
                             if(gs_runpara.flg & (0x01<<RUN_FLG))
                             {
                                 gs_runpara.flg     &= ~(0x01<<RUN_FLG);             //ª˙≥µÕ£≥µ‘À––
-                                printfcom1("\r\nª˙≥µÕ£≥µ");
+                                //printfcom1("\r\nª˙≥µÕ£≥µ");
                             }
                             
                             for(u8 j = 0;j < 8;j++ )
@@ -514,7 +514,7 @@ void    JudgeonechPulse(void)
                                 {
                                     gs_runpara.flg      |= (0x01 << PLUSE_STORE);           //◊¥Ã¨±£¥Ê
                                     gs_pulsech[j].flg   &= ~(0x01 << CH_IN);  //±Íº«Õ®µ¿Œﬁ–≈∫≈  
-                                    printfcom1("\r\n Õ®µ¿°æ %d °øŒﬁ ‰»Î %x",j, gs_pulsech[j].flg);
+                                    //printfcom1("\r\n Õ®µ¿°æ %d °øŒﬁ ‰»Î %x",j, gs_pulsech[j].flg);
                                 }   
                             }
                             
@@ -524,14 +524,14 @@ void    JudgeonechPulse(void)
                                 )
                             {
                                 no_pluse_time = systime;
-                                printfcom1("\r\n Œﬁ–≈∫≈%d£°£°%lld",l_allplusecnt,no_pluse_time);
+                                //printfcom1("\r\n Œﬁ–≈∫≈%d£°£°%lld",l_allplusecnt,no_pluse_time);
 
                                 l_allplusecnt = 0;
                                 Initchexcptflg();//«ÂÕ®µ¿≤Œ ˝£¨≥˝flgÕ‚
                                 addspeedtimes = 0;
                                 subspeedtimes = 0;
                                 gs_runpara.flg &= ~(0x01<<RUN_FLG);
-                                //printfcom1("\r\n Œﬁ–≈∫≈£°£°");
+                                ////printfcom1("\r\n Œﬁ–≈∫≈£°£°");
                             }
                         }                        
                     }
@@ -559,7 +559,7 @@ void    JudgeonechPulse(void)
                                 memset(&gs_pulsech[i],0,sizeof(gs_pulsech[i]));         //«Â ˝æ›
                                 gs_pulsech[i].flg = flgtmp; 
                                 
-                                printfcom1("\r\nIÕ®µ¿%dŒﬁ–≈∫≈π ’œ",i);
+                                //printfcom1("\r\nIÕ®µ¿%dŒﬁ–≈∫≈π ’œ",i);
                             }
                         }                         
                     }
@@ -644,7 +644,7 @@ void    AutoChangeCh(void)
            ) 
         {    //Õ¨◊È ‰≥ˆ£¨≤ª’“±∏”√Õ®µ¿
         //  if( abs(ch1-ch2) == 1) {    //Õ¨◊È ‰≥ˆ£¨≤ª’“±∏”√Õ®µ¿
-            //printfcom1("ch1%2==0) %d£¨%d",ch1,ch2);
+            ////printfcom1("ch1%2==0) %d£¨%d",ch1,ch2);
             if(    ((gs_pulsech[ch1].flg & (0x01 << CH_IN)) && (gs_pulsech[ch2].flg & (0x01 << CH_IN)))   //Õ®µ¿ ‰»Î’˝≥£
                 ||  (gs_pulsech[ch1].period > ONE_KILM_PERIOD /10 &&  gs_pulsech[ch2].period > ONE_KILM_PERIOD /10) //ÀŸ∂»–°”⁄10km/h
                 )   
@@ -683,9 +683,9 @@ void    AutoChangeCh(void)
                                 gs_selch.selch2num = gs_selch.selch1num - 1;  //Õ®µ¿∑¥œÚ       
                             }
                             
-                            printfcom1("\r\n Õ®µ¿∑¥œÚ");
+                            ////printfcom1("\r\n Õ®µ¿∑¥œÚ");
                         }
-                        printfcom1("\r\nø™≥µ«–ªª gs_selch.selchgroup %d£¨%d£¨%d",gs_selch.selchgroup,gs_selch.selch1num,gs_selch.selch2num);
+                        ////printfcom1("\r\nø™≥µ«–ªª gs_selch.selchgroup %d£¨%d£¨%d",gs_selch.selchgroup,gs_selch.selch1num,gs_selch.selch2num);
 
                         gs_selch.crc16 = GetCrc16Check((u8 *)&gs_selch,sizeof(gs_selch)-2 );            
                         WriteFM24CL64(FRAM_SEL_CH_ADDR,(uint8 *)&gs_selch,sizeof(gs_selch));//¥ÊÕ®µ¿1 
@@ -702,7 +702,7 @@ void    AutoChangeCh(void)
     }
       
 ////////////////////////////////////////////////////////////////////////////////////////   
-//    printfcom1("\r\ngroup %d£¨%d£¨%x£¨%x",gs_selch.selch1num,gs_selch.selch2num,
+//    //printfcom1("\r\ngroup %d£¨%d£¨%x£¨%x",gs_selch.selch1num,gs_selch.selch2num,
 //                            gs_pulsech[gs_selch.selch1num].flg,gs_pulsech[gs_selch.selch2num].flg);
 //    
     static  uint64_t   changetick = 0;
@@ -712,7 +712,7 @@ void    AutoChangeCh(void)
     changetick = GetSysBaseTick();
     
     //∑÷◊È«–ªª  
-    //printfcom1("ppp");    
+    ////printfcom1("ppp");    
     group = gs_selch.selchgroup;
     for(u8 i = 0;i<4;i++,group++ )  
     {
@@ -723,7 +723,7 @@ void    AutoChangeCh(void)
             (gs_pulsech[ch2].flg & (0x01 << CH_OK))
            )
         {
-            printfcom1("\r\ngroup %d ch1 %d ch2 %d ",group,ch1,ch2);
+            ////printfcom1("\r\ngroup %d ch1 %d ch2 %d ",group,ch1,ch2);
             gs_selch.selchgroup     = group % 4;
             gs_selch.selchgroupbak  = 5;
             gs_selch.selch1num  = gs_selch.selchgroup * 2; 
@@ -737,9 +737,9 @@ void    AutoChangeCh(void)
                     gs_selch.selch2num = gs_selch.selch1num - 1;  //Õ®µ¿∑¥œÚ       
                 }
                 
-                printfcom1("\r\n Õ®µ¿∑¥œÚ");
+                ////printfcom1("\r\n Õ®µ¿∑¥œÚ");
             }
-            printfcom1("\r\n 121 gs_selch.selchgroup %d£¨%d£¨%d",gs_selch.selchgroup,gs_selch.selch1num,gs_selch.selch2num);
+            ////printfcom1("\r\n 121 gs_selch.selchgroup %d£¨%d£¨%d",gs_selch.selchgroup,gs_selch.selch1num,gs_selch.selch2num);
             
             gs_selch.crc16 = GetCrc16Check((u8 *)&gs_selch,sizeof(gs_selch)-2 );            
             WriteFM24CL64(FRAM_SEL_CH_ADDR,(uint8 *)&gs_selch,sizeof(gs_selch));//¥ÊÕ®µ¿1 
@@ -748,7 +748,7 @@ void    AutoChangeCh(void)
             gs_runpara.flg      |= (0x01 << PLUSE_STORE);           //◊¥Ã¨±£¥Ê
 
             changetick = GetSysBaseTick();
-            //printfcom1("\r\n 131 gs_selch.selchgroup %d£¨%d£¨%d",gs_selch.selchgroup,gs_selch.selch1num,gs_selch.selch2num);
+            ////printfcom1("\r\n 131 gs_selch.selchgroup %d£¨%d£¨%d",gs_selch.selchgroup,gs_selch.selch1num,gs_selch.selch2num);
             printfflg();    
             return;
         }
@@ -763,7 +763,7 @@ void    AutoChangeCh(void)
     curch1 = gs_selch.selch1num;
     curch2 = gs_selch.selch2num;
     
-//    printfcom1("\r\ncurch1 %d,%d",gs_selch.selch1num,gs_selch.selch2num);
+//    //printfcom1("\r\ncurch1 %d,%d",gs_selch.selch1num,gs_selch.selch2num);
 //    static  uint16_t singchangetime = 0;
 //    if(GetSysBaseTick() - singchangetime <  1000*1000*8*200)
 //            return;
@@ -799,14 +799,14 @@ void    AutoChangeCh(void)
             gs_selch.selch2num = gs_selch.selch1num;
         }
         
-       //printfcom1("\r\ncurch1 %d,%d,%d,%d",gs_selch.selch1num,gs_selch.selch2num,curch1,curch2);
+       ////printfcom1("\r\ncurch1 %d,%d,%d,%d",gs_selch.selch1num,gs_selch.selch2num,curch1,curch2);
         
         if(     gs_selch.selch1num == curch1
             &&  gs_selch.selch2num == curch2
           )
             return;        //Õ®µ¿Œ¥«–ªª£¨≤ª¥¶¿Ì
         
-        //printfcom1("\r\ncurch1 %d,%d",gs_selch.selch1num,gs_selch.selch2num);
+        ////printfcom1("\r\ncurch1 %d,%d",gs_selch.selch1num,gs_selch.selch2num);
 
         gs_selch.selchgroup     = 5;
         gs_selch.selchgroupbak  = 5;
@@ -823,7 +823,7 @@ void    AutoChangeCh(void)
         gs_runpara.flg      |= (0x01 << PLUSE_STORE);           //◊¥Ã¨±£¥Ê
 
         changetick = GetSysBaseTick();
-        printfcom1("\r\n µ•Õ®µ¿«–ªª selch1num %d£¨%d£¨",gs_selch.selch1num,gs_selch.selch2num);
+        //printfcom1("\r\n µ•Õ®µ¿«–ªª selch1num %d£¨%d£¨",gs_selch.selch1num,gs_selch.selch2num);
         printfflg();    
     }
 }

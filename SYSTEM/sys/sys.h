@@ -18,6 +18,22 @@
 ////////////////////////////////////////////////////////////////////////////////// 
 
 
+
+
+    /* smallest type of at least n bits */
+    /* minimum-width signed integer types */
+typedef   signed          char int8;
+typedef   signed short     int int16;
+typedef   signed           int int32;
+//typedef   signed       __INT64 int64;
+
+    /* minimum-width unsigned integer types */
+typedef unsigned          char uint8;
+typedef unsigned short     int uint16;
+typedef unsigned           int uint32;
+//typedef unsigned       __INT64 uint64;
+
+
 //0,不支持ucos
 //1,支持ucos
 #define SYSTEM_SUPPORT_OS		0		//定义系统文件夹是否支持UCOS

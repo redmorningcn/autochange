@@ -5,10 +5,10 @@
 <h2>Tool Versions:</h2>
 IDE-Version: μVision V5.23.0.0
 Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: key key, red, LIC=HN001-C9DTG-6QA0X-HVDV2-VZYPU-SSW4I
+License Information: 1 1, 1, LIC=JDAUH-WEDDI-ZDHK6-DE4J5-QL625-2TCTM
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.23
+Toolchain:       MDK-ARM Professional  Version: 5.23
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 4 (build 422)
 Assembler:       Armasm.exe V5.06 update 4 (build 422)
@@ -22,503 +22,41 @@ Dialog DLL:      TCM.DLL V1.27.0.0
  
 <h2>Project:</h2>
 F:\embedsoft\autochange\USER\UDISK.uvprojx
-Project File Date:  12/21/2016
+Project File Date:  04/07/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'UDISK'
-compiling stm32f4xx_it.c...
-compiling spi.c...
-compiling system_stm32f4xx.c...
-compiling key.c...
-..\HARDWARE\KEY\key.c(168): warning:  #223-D: function "GetSysBaseTick" declared implicitly
-          uint64_t    systick = GetSysBaseTick();
-..\HARDWARE\KEY\key.c(178): warning:  #223-D: function "PrintfRecord" declared implicitly
-                  PrintfRecord(--recnum);
-..\HARDWARE\KEY\key.c(183): warning:  #223-D: function "Initch" declared implicitly
-                  Initch();
-..\HARDWARE\KEY\key.c(186): warning:  #223-D: function "BSP_LED_Off" declared implicitly
-                  BSP_LED_Off(0);
-..\HARDWARE\KEY\key.c(205): warning:  #223-D: function "GetSysBaseTick" declared implicitly
-          uint64_t    systick = GetSysBaseTick();
-..\HARDWARE\KEY\key.c(216): warning:  #223-D: function "BSP_LED_On" declared implicitly
-                  BSP_LED_On(0);    
-..\HARDWARE\KEY\key.c(229): warning:  #223-D: function "BSP_LED_Off" declared implicitly
-                  BSP_LED_Off(0);    
-..\HARDWARE\KEY\key.c(247): warning:  #223-D: function "BSP_LED_On" declared implicitly
-                          BSP_LED_On(i+5);
-..\HARDWARE\KEY\key.c(254): warning:  #223-D: function "BSP_LED_On" declared implicitly
-                          BSP_LED_On(i+1);                    
-..\HARDWARE\KEY\key.c(260): warning:  #223-D: function "GetCrc16Check" declared implicitly
-                  gs_runpara.crc16 = GetCrc16Check((u8 *)&gs_runpara,sizeof(gs_runpara)-2);
-..\HARDWARE\KEY\key.c(262): warning:  #223-D: function "WriteFM24CL64" declared implicitly
-                  WriteFM24CL64(FRAM_RUN_PARA_ADDR,(u8 *)&gs_runpara,sizeof(gs_runpara));
-..\HARDWARE\KEY\key.c(198): warning:  #550-D: variable "lsthandsts"  was set but never used
-      static  u8 lsthandsts = SET;
-..\HARDWARE\KEY\key.c: 12 warnings, 0 errors
 compiling led.c...
 ..\HARDWARE\LED\led.c(375): warning:  #186-D: pointless comparison of unsigned integer with zero
                       if(( gs_selch.selch1num >= 0 )&&( gs_selch.selch1num < 8 )) {  //工作通道闪烁
 ..\HARDWARE\LED\led.c(383): warning:  #186-D: pointless comparison of unsigned integer with zero
                       if(( gs_selch.selch2num >= 0 )&&( gs_selch.selch2num < 8 )) {  //工作通道闪烁
-..\HARDWARE\LED\led.c(356): warning:  #550-D: variable "systime"  was set but never used
+..\HARDWARE\LED\led.c(357): warning:  #550-D: variable "systime"  was set but never used
       static  u32 systime;
-..\HARDWARE\LED\led.c(450): warning:  #223-D: function "ReadFM24CL64" declared implicitly
+..\HARDWARE\LED\led.c(426): warning:  #550-D: variable "systime"  was set but never used
+      static  u32 systime;
+..\HARDWARE\LED\led.c(603): warning:  #223-D: function "ReadFM24CL64" declared implicitly
       ReadFM24CL64( FRAM_SEL_CH_ADDR,(uint8 *)&gs_selch,sizeof(gs_selch));//读通道数据
-..\HARDWARE\LED\led.c(451): warning:  #223-D: function "GetCrc16Check" declared implicitly
+..\HARDWARE\LED\led.c(604): warning:  #223-D: function "GetCrc16Check" declared implicitly
       if(gs_selch.crc16 != GetCrc16Check((uint8 *)&gs_selch,sizeof(gs_selch)-2) )
-..\HARDWARE\LED\led.c(459): warning:  #223-D: function "WriteFM24CL64" declared implicitly
+..\HARDWARE\LED\led.c(612): warning:  #223-D: function "WriteFM24CL64" declared implicitly
           WriteFM24CL64( FRAM_SEL_CH_ADDR,(uint8 *)&gs_selch,sizeof(gs_selch));
-..\HARDWARE\LED\led.c(449): warning:  #177-D: variable "sel"  was declared but never referenced
+..\HARDWARE\LED\led.c(602): warning:  #177-D: variable "sel"  was declared but never referenced
       uint8   sel;
-..\HARDWARE\LED\led.c: 7 warnings, 0 errors
-compiling main.c...
-main.c(62): warning:  #223-D: function "mf_open" declared implicitly
-      mf_open(storefilename,0x04);    //打开文件
-main.c(69): warning:  #223-D: function "StoreRunPara" declared implicitly
-          StoreRunPara();             //存运行参数
-main.c(73): warning:  #223-D: function "GetchPulseInitFlg" declared implicitly
-          &&  GetchPulseInitFlg() == 0 //有脉冲退出
-main.c(80): warning:  #223-D: function "MX25L1602_RD" declared implicitly
-          MX25L1602_RD(addr,sizeof(stcrecord),(u8 *)&srecord );        
-main.c(82): warning:  #223-D: function "mf_write" declared implicitly
-          mf_write((u8 *)&srecord,sizeof(srecord));
-main.c(91): warning:  #223-D: function "BSP_LED_Toggle" declared implicitly
-              BSP_LED_Toggle(17);     //运行指示灯
-main.c(77): warning:  #177-D: variable "times"  was declared but never referenced
-          uint32  times = 0;
-main.c(98): warning:  #223-D: function "StoreRunPara" declared implicitly
-          StoreRunPara();
-main.c(101): warning:  #223-D: function "mf_close" declared implicitly
-      mf_close();                                                     //读当前数据
-main.c(55): warning:  #177-D: variable "recnum"  was declared but never referenced
-      u32         recnum = 0;
-main.c(122): warning:  #223-D: function "disk_initialize" declared implicitly
-      disk_initialize(2);
-main.c(127): warning:  #223-D: function "BSP_LED_On" declared implicitly
-      BSP_LED_On(17);
-main.c(129): warning:  #223-D: function "printfcom1" declared implicitly
-      printfcom1("\r\ng_usbuserflg %d",g_usbuserflg);
-main.c(135): warning:  #223-D: function "strcat" declared implicitly
-      strcat(storefilename,"2:(");
-main.c(144): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
-      sprintf(buf,"%02d-%02d-%02d ",sTime.Year,sTime.Month,sTime.Date);
-main.c(148): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
-      sprintf(buf,"%02d_%02d_%02d.QX8",sTime.Hour,sTime.Min,sTime.Sec);
-main.c(112): warning:  #177-D: variable "total"  was declared but never referenced
-  	u32 total,free;
-main.c(112): warning:  #177-D: variable "free"  was declared but never referenced
-  	u32 total,free;
-main.c(206): warning:  #223-D: function "EnUartContrlIO_Init" declared implicitly
-      EnUartContrlIO_Init();
-main.c(210): warning:  #223-D: function "InitFramIO" declared implicitly
-      InitFramIO();
-main.c(212): warning:  #223-D: function "InitFlashIO" declared implicitly
-      InitFlashIO();
-main.c(218): warning:  #223-D: function "TIM2_Int_Init" declared implicitly
-      TIM2_Int_Init(0xffffFFFF,8);    //定时器时钟84M，分频系数1，所以84M的计数频率  //0.78ms  
-main.c(220): warning:  #223-D: function "EXTIX_Init" declared implicitly
-      EXTIX_Init();   
-main.c(224): warning:  #223-D: function "BSP_LED_Init" declared implicitly
-      BSP_LED_Init();
-main.c(226): warning:  #223-D: function "Set_Key_Init" declared implicitly
-      Set_Key_Init();
-main.c(228): warning:  #223-D: function "Hand_Key_Init" declared implicitly
-      Hand_Key_Init();
-main.c(232): warning:  #223-D: function "BSP_Sel_GPIO_Init" declared implicitly
-      BSP_Sel_GPIO_Init();
-main.c(234): warning:  #223-D: function "ReadCurch_Fram" declared implicitly
-      ReadCurch_Fram();
-main.c(248): warning:  #223-D: function "JudgeFlashIDErrFlg" declared implicitly
-      JudgeFlashIDErrFlg();
-main.c(251): warning:  #223-D: function "ReadRunPara" declared implicitly
-      ReadRunPara();
-main.c(253): warning:  #223-D: function "ReadProInfo_Fram" declared implicitly
-      ReadProInfo_Fram();
-main.c(259): warning:  #223-D: function "printfcom1" declared implicitly
-      printfcom1("\r\n");
-main.c(266): warning:  #223-D: function "SetKeyChModle" declared implicitly
-      SetKeyChModle();
-main.c(277): warning:  #223-D: function "HoldUartRecSta" declared implicitly
-          HoldUartRecSta();
-main.c(283): warning:  #223-D: function "BSP_LED_Dis" declared implicitly
-              BSP_LED_Dis();                     //自动位，开灯
-main.c(287): warning:  #223-D: function "AutoChangeCh" declared implicitly
-                  AutoChangeCh();
-main.c(299): warning:  #223-D: function "SetKey" declared implicitly
-              SetKey();
-main.c(310): warning:  #223-D: function "StoreCurch_Fram" declared implicitly
-                  StoreCurch_Fram();
-main.c(312): warning:  #223-D: function "StoreRec" declared implicitly
-                  StoreRec();
-main.c(320): warning:  #223-D: function "UartSendRec" declared implicitly
-                  UartSendRec(gs_runpara.writerecnum-1);  //发送当前记录数据
-main.c(326): warning:  #223-D: function "UartConTask" declared implicitly
-          UartConTask();
-main.c(337): warning:  #223-D: function "JudgePulse" declared implicitly
-              JudgePulse();   
-main.c(193): warning:  #177-D: variable "t"  was declared but never referenced
-  	u8 t;
-main.c(194): warning:  #177-D: variable "len"  was declared but never referenced
-  	u8 len;	
-main.c(195): warning:  #177-D: variable "times"  was declared but never referenced
-  	u16 times=0;
-main.c: 45 warnings, 0 errors
-compiling lcd.c...
-compiling sdio_sdcard.c...
-compiling beep.c...
-compiling delay.c...
-compiling DS3231.c...
-..\HARDWARE\DS3231\DS3231.c(69): warning:  #223-D: function "INTX_DISABLE" declared implicitly
-      INTX_DISABLE();             //关全局中断
-..\HARDWARE\DS3231\DS3231.c(72): warning:  #223-D: function "StartI2C" declared implicitly
-      StartI2C();                                     //启动IIC总线
-..\HARDWARE\DS3231\DS3231.c(74): warning:  #223-D: function "WriteByteWithI2C" declared implicitly
-      WriteByteWithI2C(SlaveAddr);                    //写DS3231读取
-..\HARDWARE\DS3231\DS3231.c(76): warning:  #223-D: function "CheckSlaveAckI2C" declared implicitly
-      CheckSlaveAckI2C();                             //读从机应答信号
-..\HARDWARE\DS3231\DS3231.c(90): warning:  #223-D: function "ReadByteWithI2C" declared implicitly
-      RecData = ReadByteWithI2C();                	//接收到的数据
-..\HARDWARE\DS3231\DS3231.c(92): warning:  #223-D: function "MasterNoAckI2C" declared implicitly
-      MasterNoAckI2C();                               //主机应答从机
-..\HARDWARE\DS3231\DS3231.c(94): warning:  #223-D: function "StopI2C" declared implicitly
-      StopI2C();                          			//结束IIC总线
-..\HARDWARE\DS3231\DS3231.c(96): warning:  #223-D: function "INTX_ENABLE" declared implicitly
-      INTX_ENABLE();             //关全局中断
-..\HARDWARE\DS3231\DS3231.c(112): warning:  #223-D: function "StartI2C" declared implicitly
-      StartI2C();                                     //启动IIC总线
-..\HARDWARE\DS3231\DS3231.c(116): warning:  #223-D: function "WriteByteWithI2C" declared implicitly
-      WriteByteWithI2C(SlaveAddr);                    //写DS3231读取
-..\HARDWARE\DS3231\DS3231.c(118): warning:  #223-D: function "CheckSlaveAckI2C" declared implicitly
-      CheckSlaveAckI2C();                             //读从机应答信号
-..\HARDWARE\DS3231\DS3231.c(128): warning:  #223-D: function "StopI2C" declared implicitly
-      StopI2C();                          			//结束IIC总线
-..\HARDWARE\DS3231\DS3231.c(249): warning:  #223-D: function "InitI2CIO" declared implicitly
-      InitI2CIO();
-..\HARDWARE\DS3231\DS3231.c(275): warning:  #223-D: function "printfcom1" declared implicitly
-  		printfcom1("\r\n%u-%u-%u  %u:%u:%u",
-..\HARDWARE\DS3231\DS3231.c(266): warning:  #177-D: variable "Time"  was declared but never referenced
-  	static uint32	Time = 0;
-..\HARDWARE\DS3231\DS3231.c: 15 warnings, 0 errors
-compiling sram.c...
-compiling MX25L1602Drv.c...
-..\HARDWARE\MX25L1602\MX25L1602Drv.c(90): warning:  #223-D: function "delay_us" declared implicitly
-      delay_us(1);
-..\HARDWARE\MX25L1602\MX25L1602Drv.c(120): warning:  #223-D: function "delay_us" declared implicitly
-      delay_us(1);
-..\HARDWARE\MX25L1602\MX25L1602Drv.c(144): warning:  #223-D: function "delay_us" declared implicitly
-      delay_us(1);
-..\HARDWARE\MX25L1602\MX25L1602Drv.c(174): warning:  #223-D: function "delay_us" declared implicitly
-      delay_us(1);
-..\HARDWARE\MX25L1602\MX25L1602Drv.c(198): warning:  #223-D: function "delay_us" declared implicitly
-      delay_us(1);
-..\HARDWARE\MX25L1602\MX25L1602Drv.c(228): warning:  #223-D: function "delay_us" declared implicitly
-      delay_us(1);
-..\HARDWARE\MX25L1602\MX25L1602Drv.c(252): warning:  #223-D: function "delay_us" declared implicitly
-      delay_us(1);
-..\HARDWARE\MX25L1602\MX25L1602Drv.c(306): warning:  #223-D: function "delay_us" declared implicitly
-        delay_us(1);
-..\HARDWARE\MX25L1602\MX25L1602Drv.c(373): warning:  #223-D: function "INTX_DISABLE" declared implicitly
-        INTX_DISABLE();             //关全局中断
-..\HARDWARE\MX25L1602\MX25L1602Drv.c(389): warning:  #223-D: function "INTX_ENABLE" declared implicitly
-        INTX_ENABLE();             //关全局中断
-..\HARDWARE\MX25L1602\MX25L1602Drv.c(445): warning:  #223-D: function "INTX_DISABLE" declared implicitly
-      INTX_DISABLE();             //关全局中断
-..\HARDWARE\MX25L1602\MX25L1602Drv.c(508): warning:  #223-D: function "INTX_ENABLE" declared implicitly
-       INTX_ENABLE();             //关全局中断
-..\HARDWARE\MX25L1602\MX25L1602Drv.c: 12 warnings, 0 errors
-compiling timer.c...
-assembling startup_stm32f40_41xxx.s...
-compiling exti.c...
-..\HARDWARE\EXTI\exti.c(35): warning:  #177-D: variable "bittmp1"  was declared but never referenced
-      u8      bittmp1,bittmp2,bittmp3;
-..\HARDWARE\EXTI\exti.c(35): warning:  #177-D: variable "bittmp2"  was declared but never referenced
-      u8      bittmp1,bittmp2,bittmp3;
-..\HARDWARE\EXTI\exti.c(35): warning:  #177-D: variable "bittmp3"  was declared but never referenced
-      u8      bittmp1,bittmp2,bittmp3;
-..\HARDWARE\EXTI\exti.c: 3 warnings, 0 errors
-compiling sys.c...
-compiling stm32f4xx_gpio.c...
-compiling usart.c...
-..\SYSTEM\usart\usart.c(283): warning:  #223-D: function "strlen" declared implicitly
-     strlen(format);
-..\SYSTEM\usart\usart.c: 1 warning, 0 errors
-compiling stm32f4xx_dma.c...
-compiling misc.c...
-compiling stm32f4xx_fsmc.c...
-compiling stm32f4xx_rcc.c...
-compiling stm32f4xx_sdio.c...
-compiling stm32f4xx_syscfg.c...
-compiling stm32f4xx_spi.c...
-compiling stm32f4xx_usart.c...
-compiling stm32f4xx_iwdg.c...
-compiling stm32f4xx_exti.c...
-compiling malloc.c...
-compiling usmart_config.c...
-compiling w25qxx.c...
-compiling usmart.c...
-compiling stm32f4xx_tim.c...
-compiling usmart_str.c...
-compiling ff.c...
-compiling mycc936.c...
-compiling exfuns.c...
-compiling fattester.c...
-compiling diskio.c...
-compiling fontupd.c...
-compiling text.c...
-compiling usb_hcd.c...
-compiling piclib.c...
-compiling usb_core.c...
-compiling bmp.c...
-compiling gif.c...
-compiling tjpgd.c...
-compiling usbh_core.c...
-compiling usbh_hcs.c...
-compiling usb_hcd_int.c...
-compiling usbh_ioreq.c...
-compiling usbh_stdreq.c...
-compiling usbh_msc_bot.c...
-compiling usbh_msc_core.c...
-compiling usb_bsp.c...
-compiling usbh_msc_scsi.c...
-compiling sensorpulse.c...
-compiling store.c...
-..\APP\store\store.c(41): warning:  #223-D: function "WriteFM24CL64" declared implicitly
-          WriteFM24CL64(addr,(u8 *)&gs_pulsech[i],sizeof(stcchpulse));
-..\APP\store\store.c(55): warning:  #223-D: function "WriteFM24CL64" declared implicitly
-          WriteFM24CL64(addr,(u8 *)&gs_proinfo,sizeof(stcproinfo));
-..\APP\store\store.c(67): warning:  #223-D: function "ReadFM24CL64" declared implicitly
-          ReadFM24CL64(addr,(u8 *)&gs_proinfo,sizeof(stcproinfo));
-..\APP\store\store.c(69): warning:  #223-D: function "printfcom1" declared implicitly
-      printfcom1("\r\n ");
-..\APP\store\store.c(81): warning:  #181-D: argument is incompatible with corresponding format string conversion
-                          gs_pulsech[i].lstrisetime);
-..\APP\store\store.c(95): warning:  #223-D: function "ReadFM24CL64" declared implicitly
-          ReadFM24CL64(addr,(u8 *)&gs_pulsech[i],sizeof(stcchpulse));
-..\APP\store\store.c(107): warning:  #223-D: function "memset" declared implicitly
-          memset(&gs_pulsech[i],0,sizeof(gs_pulsech[i]));
-..\APP\store\store.c(124): warning:  #223-D: function "memset" declared implicitly
-          memset(&gs_pulsech[i],0,sizeof(gs_pulsech[i]));
-..\APP\store\store.c(120): warning:  #177-D: variable "flg"  was declared but never referenced
-      u16 flg;
-..\APP\store\store.c(147): warning:  #223-D: function "memset" declared implicitly
-          memset(&gs_pulsech[i],0,sizeof(gs_pulsech[i]));
-..\APP\store\store.c(134): warning:  #177-D: variable "addr"  was declared but never referenced
-          u32 addr;
-..\APP\store\store.c(206): warning:  #223-D: function "GetCrc16Check" declared implicitly
-      srecord.crc16 = GetCrc16Check((u8 *)&srecord,sizeof(srecord)-2);
-..\APP\store\store.c(218): warning:  #223-D: function "WriteFM24CL64" declared implicitly
-      WriteFM24CL64(FRAM_RUN_PARA_ADDR,(u8 *)&gs_runpara,sizeof(gs_runpara));
-..\APP\store\store.c(231): warning:  #223-D: function "ReadFM24CL64" declared implicitly
-      ReadFM24CL64(FRAM_RUN_PARA_ADDR,(u8 *)&gs_runpara,sizeof(gs_runpara));
-..\APP\store\store.c(232): warning:  #223-D: function "GetCrc16Check" declared implicitly
-      if(gs_runpara.crc16 != GetCrc16Check((uint8 *)&gs_runpara,sizeof(gs_runpara)-2))
-..\APP\store\store.c(254): warning:  #223-D: function "GetCrc16Check" declared implicitly
-      gs_runpara.crc16 = GetCrc16Check((uint8 *)&gs_runpara,sizeof(gs_runpara)-2);
-..\APP\store\store.c(255): warning:  #223-D: function "WriteFM24CL64" declared implicitly
-      WriteFM24CL64(FRAM_RUN_PARA_ADDR,(u8 *)&gs_runpara,sizeof(gs_runpara));
-..\APP\store\store.c(266): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("\r\n%u-%u-%u %2u:%2u:%2u,"
-..\APP\store\store.c: 18 warnings, 0 errors
-compiling judgepulse.c...
-..\APP\judgepulse\judgepulse.c(30): warning:  #223-D: function "printfcom1" declared implicitly
-      printfcom1("\r\n1:%02x\t2:%02x\t3:%02x\t4:%02x\t5:%02x\t6:%02x\t7:%02x\t8:%02x",
-..\APP\judgepulse\judgepulse.c(105): warning:  #223-D: function "abs" declared implicitly
-                          if((abs(period - period1) < period/PER_PERIOD))     //判断是否有周期超限
-..\APP\judgepulse\judgepulse.c(119): warning:  #223-D: function "printfcom1" declared implicitly
-                          printfcom1("\r\n通道频率故障CH%d：err %d",i,gs_pulsech[i].frqerrtimes);
-..\APP\judgepulse\judgepulse.c(138): warning:  #223-D: function "printfcom1" declared implicitly
-                          printfcom1("\r\n通道频率故障CH%d清除",i);
-..\APP\judgepulse\judgepulse.c(181): warning:  #223-D: function "printfcom1" declared implicitly
-                  printfcom1("\r\n通道【%d】频率过快");
-..\APP\judgepulse\judgepulse.c(256): warning:  #223-D: function "GetCrc16Check" declared implicitly
-                             gs_runpara.crc16 = GetCrc16Check((u8 *)&gs_runpara,sizeof(gs_runpara)-2);
-..\APP\judgepulse\judgepulse.c(258): warning:  #223-D: function "WriteFM24CL64" declared implicitly
-                             WriteFM24CL64(FRAM_RUN_PARA_ADDR,(u8 *)&gs_runpara,sizeof(gs_runpara));
-..\APP\judgepulse\judgepulse.c(260): warning:  #223-D: function "BSP_Sel_GPIO_Init" declared implicitly
-                             BSP_Sel_GPIO_Init();
-..\APP\judgepulse\judgepulse.c(262): warning:  #223-D: function "printfcom1" declared implicitly
-                             printfcom1("\r\n 主动设置为同侧");
-..\APP\judgepulse\judgepulse.c(280): warning:  #223-D: function "GetCrc16Check" declared implicitly
-                              gs_runpara.crc16 = GetCrc16Check((u8 *)&gs_runpara,sizeof(gs_runpara)-2);
-..\APP\judgepulse\judgepulse.c(282): warning:  #223-D: function "WriteFM24CL64" declared implicitly
-                              WriteFM24CL64(FRAM_RUN_PARA_ADDR,(u8 *)&gs_runpara,sizeof(gs_runpara));
-..\APP\judgepulse\judgepulse.c(284): warning:  #223-D: function "BSP_Sel_GPIO_Init" declared implicitly
-                              BSP_Sel_GPIO_Init();
-..\APP\judgepulse\judgepulse.c(286): warning:  #223-D: function "printfcom1" declared implicitly
-                              printfcom1("\r\n 主动设置为异侧");
-..\APP\judgepulse\judgepulse.c(313): warning:  #223-D: function "printfcom1" declared implicitly
-                              printfcom1("\r\n 减速%d",subspeedtimes);
-..\APP\judgepulse\judgepulse.c(326): warning:  #223-D: function "printfcom1" declared implicitly
-                              printfcom1("\r\n  加速%d",addspeedtimes);
-..\APP\judgepulse\judgepulse.c(344): warning:  #223-D: function "abs" declared implicitly
-              if(( abs(period - lstperiod) ) < period/PER_PERIOD)         //连续两周期偏差小于%30
-..\APP\judgepulse\judgepulse.c(352): warning:  #223-D: function "printfcom1" declared implicitly
-                          printfcom1("\r\n通道[%d],有信号输入",i);
-..\APP\judgepulse\judgepulse.c(365): warning:  #223-D: function "printfcom1" declared implicitly
-                          printfcom1("\r\n丢脉冲通道%d，信号恢复",i);
-..\APP\judgepulse\judgepulse.c(403): warning:  #223-D: function "printfcom1" declared implicitly
-                      printfcom1("\r\n通道%d丢脉冲故障",i);
-..\APP\judgepulse\judgepulse.c(426): warning:  #177-D: variable "tmp8"  was declared but never referenced
-                  u8  tmp8 = 0;
-..\APP\judgepulse\judgepulse.c(493): warning:  #223-D: function "printfcom1" declared implicitly
-                              printfcom1("\r\n 通道【%d】无输入 %x",i, gs_pulsech[i].flg);
-..\APP\judgepulse\judgepulse.c(508): warning:  #223-D: function "printfcom1" declared implicitly
-                                  printfcom1("\r\n机车停车");
-..\APP\judgepulse\judgepulse.c(517): warning:  #223-D: function "printfcom1" declared implicitly
-                                      printfcom1("\r\n 通道【 %d 】无输入 %x",j, gs_pulsech[j].flg);
-..\APP\judgepulse\judgepulse.c(527): warning:  #223-D: function "printfcom1" declared implicitly
-                                  printfcom1("\r\n 无信号%d！！%lld",l_allplusecnt,no_pluse_time);
-..\APP\judgepulse\judgepulse.c(530): warning:  #223-D: function "Initchexcptflg" declared implicitly
-                                  Initchexcptflg();//清通道参数，除flg外
-..\APP\judgepulse\judgepulse.c(559): warning:  #223-D: function "memset" declared implicitly
-                                  memset(&gs_pulsech[i],0,sizeof(gs_pulsech[i]));         //清数据
-..\APP\judgepulse\judgepulse.c(562): warning:  #223-D: function "printfcom1" declared implicitly
-                                  printfcom1("\r\nI通道%d无信号故障",i);
-..\APP\judgepulse\judgepulse.c(686): warning:  #223-D: function "printfcom1" declared implicitly
-                              printfcom1("\r\n 通道反向");
-..\APP\judgepulse\judgepulse.c(688): warning:  #223-D: function "printfcom1" declared implicitly
-                          printfcom1("\r\n开车切换 gs_selch.selchgroup %d，%d，%d",gs_selch.selchgroup,gs_selch.selch1num,gs_selch.selch2num);
-..\APP\judgepulse\judgepulse.c(690): warning:  #223-D: function "GetCrc16Check" declared implicitly
-                          gs_selch.crc16 = GetCrc16Check((u8 *)&gs_selch,sizeof(gs_selch)-2 );            
-..\APP\judgepulse\judgepulse.c(691): warning:  #223-D: function "WriteFM24CL64" declared implicitly
-                          WriteFM24CL64(FRAM_SEL_CH_ADDR,(uint8 *)&gs_selch,sizeof(gs_selch));//存通道1 
-..\APP\judgepulse\judgepulse.c(726): warning:  #223-D: function "printfcom1" declared implicitly
-              printfcom1("\r\ngroup %d ch1 %d ch2 %d ",group,ch1,ch2);
-..\APP\judgepulse\judgepulse.c(744): warning:  #223-D: function "GetCrc16Check" declared implicitly
-              gs_selch.crc16 = GetCrc16Check((u8 *)&gs_selch,sizeof(gs_selch)-2 );            
-..\APP\judgepulse\judgepulse.c(745): warning:  #223-D: function "WriteFM24CL64" declared implicitly
-              WriteFM24CL64(FRAM_SEL_CH_ADDR,(uint8 *)&gs_selch,sizeof(gs_selch));//存通道1 
-..\APP\judgepulse\judgepulse.c(817): warning:  #223-D: function "GetCrc16Check" declared implicitly
-          gs_selch.crc16 = GetCrc16Check((u8 *)&gs_selch,sizeof(gs_selch)-2 );
-..\APP\judgepulse\judgepulse.c(819): warning:  #223-D: function "WriteFM24CL64" declared implicitly
-          WriteFM24CL64(FRAM_SEL_CH_ADDR,(uint8 *)&gs_selch,sizeof(gs_selch));//存通道1 
-..\APP\judgepulse\judgepulse.c(820): warning:  #223-D: function "ReadFM24CL64" declared implicitly
-          ReadFM24CL64( FRAM_SEL_CH_ADDR,(uint8 *)&gs_selch,sizeof(gs_selch));//读通道数据
-..\APP\judgepulse\judgepulse.c(826): warning:  #223-D: function "printfcom1" declared implicitly
-          printfcom1("\r\n 单通道切换 selch1num %d，%d，",gs_selch.selch1num,gs_selch.selch2num);
-..\APP\judgepulse\judgepulse.c(617): warning:  #177-D: variable "sel"  was declared but never referenced
-      uint8   sel = 0;
-..\APP\judgepulse\judgepulse.c(618): warning:  #177-D: variable "tmp8"  was declared but never referenced
-      uint8   tmp8;
-..\APP\judgepulse\judgepulse.c(619): warning:  #177-D: variable "lstbitsta"  was declared but never referenced
-      uint8   lstbitsta = Bit_SET;
-..\APP\judgepulse\judgepulse.c: 41 warnings, 0 errors
-compiling cnscpackdeal.c...
-..\APP\csnrprotocol\cnscpackdeal.c(31): warning:  #223-D: function "GetCheckSumNR" declared implicitly
-  	SumCheck8 = GetCheckSumNR(&SndBuf[2],5);		   	//索引区校验
-..\APP\csnrprotocol\cnscpackdeal.c(35): warning:  #223-D: function "memcpy" declared implicitly
-  	memcpy(&SndBuf[8],sprotocolpara.databuf,DataLen);
-..\APP\csnrprotocol\cnscpackdeal.c(37): warning:  #223-D: function "GetCrc16Check" declared implicitly
-  	Crc16 = GetCrc16Check(&SndBuf[2],6+sprotocolpara.datalen);
-..\APP\csnrprotocol\cnscpackdeal.c(17): warning:  #177-D: variable "FramNum"  was declared but never referenced
-  	unsigned char 	    FramNum =0;						//序号
-..\APP\csnrprotocol\cnscpackdeal.c(114): warning:  #223-D: function "GetCheckSumNR" declared implicitly
-  			SumCheck8 = GetCheckSumNR((unsigned char *)&RecBuf[i+2],5);		   				//索引区校验
-..\APP\csnrprotocol\cnscpackdeal.c(132): warning:  #223-D: function "GetCrc16Check" declared implicitly
-  									Check16 = GetCrc16Check(&RecBuf[i+2],6+DataLen);
-..\APP\csnrprotocol\cnscpackdeal.c(147): warning:  #223-D: function "memcpy" declared implicitly
-  				memcpy(sprotocolpara->databuf,&RecBuf[i+8],DataLen);				//数据拷贝
-..\APP\csnrprotocol\cnscpackdeal.c: 7 warnings, 0 errors
-compiling crccheck.c...
-compiling FRAM.c...
-..\APP\fram\FRAM.c(82): warning:  #223-D: function "delay_us" declared implicitly
-      delay_us(1);
-..\APP\fram\FRAM.c(124): warning:  #223-D: function "delay_us" declared implicitly
-      delay_us(1);
-..\APP\fram\FRAM.c(152): warning:  #223-D: function "delay_us" declared implicitly
-      delay_us(1);
-..\APP\fram\FRAM.c(183): warning:  #223-D: function "delay_us" declared implicitly
-      delay_us(1);
-..\APP\fram\FRAM.c(359): warning:  #223-D: function "INTX_DISABLE" declared implicitly
-      INTX_DISABLE();                                         //关全局中断
-..\APP\fram\FRAM.c(393): warning:  #223-D: function "INTX_ENABLE" declared implicitly
-      INTX_ENABLE();                                         //关全局中断
-..\APP\fram\FRAM.c(415): warning:  #223-D: function "INTX_DISABLE" declared implicitly
-      INTX_DISABLE();                                         //关全局中断
-..\APP\fram\FRAM.c(457): warning:  #223-D: function "INTX_ENABLE" declared implicitly
-      INTX_ENABLE();                                         //关全局中断
-..\APP\fram\FRAM.c: 8 warnings, 0 errors
-compiling usbh_usr.c...
-..\USB\USB_APP\usbh_usr.c(58): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("USB OTG HS MSC Host\r\n");
-..\USB\USB_APP\usbh_usr.c(67): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("检测到USB设备插入!\r\n");
-..\USB\USB_APP\usbh_usr.c(76): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("USB设备拔出!\r\n");
-..\USB\USB_APP\usbh_usr.c(84): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("复位设备...\r\n");
-..\USB\USB_APP\usbh_usr.c(92): warning:  #223-D: function "printfcom1" declared implicitly
-  		printfcom1("高速(HS)USB设备!\r\n");
-..\USB\USB_APP\usbh_usr.c(96): warning:  #223-D: function "printfcom1" declared implicitly
-  		printfcom1("全速(FS)USB设备!\r\n"); 
-..\USB\USB_APP\usbh_usr.c(100): warning:  #223-D: function "printfcom1" declared implicitly
-  		printfcom1("低速(LS)USB设备!\r\n");  
-..\USB\USB_APP\usbh_usr.c(104): warning:  #223-D: function "printfcom1" declared implicitly
-  		printfcom1("设备错误!\r\n");  
-..\USB\USB_APP\usbh_usr.c(113): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("VID: %04Xh\r\n" , (uint32_t)(*hs).idVendor); 
-..\USB\USB_APP\usbh_usr.c(119): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("从机地址分配成功!\r\n");   
-..\USB\USB_APP\usbh_usr.c(130): warning:  #223-D: function "printfcom1" declared implicitly
-  		printfcom1("可移动存储器设备!\r\n"); 
-..\USB\USB_APP\usbh_usr.c(133): warning:  #223-D: function "printfcom1" declared implicitly
-  		printfcom1("HID 设备!\r\n"); 
-..\USB\USB_APP\usbh_usr.c(139): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("Manufacturer: %s\r\n",(char *)ManufacturerString);
-..\USB\USB_APP\usbh_usr.c(144): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("Product: %s\r\n",(char *)ProductString);  
-..\USB\USB_APP\usbh_usr.c(149): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("Serial Number: %s\r\n",(char *)SerialNumString);    
-..\USB\USB_APP\usbh_usr.c(154): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("设备枚举完成!\r\n\r\n");    
-..\USB\USB_APP\usbh_usr.c(159): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("无法识别的USB设备!\r\n\r\n");    
-..\USB\USB_APP\usbh_usr.c(164): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("跳过用户确认步骤!\r\n");
-..\USB\USB_APP\usbh_usr.c(170): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("端口电流过大!!!\r\n");
-..\USB\USB_APP\usbh_usr.c(181): warning:  #223-D: function "printfcom1" declared implicitly
-  			printfcom1("开始执行用户程序!!!\r\n");
-..\USB\USB_APP\usbh_usr.c(203): warning:  #223-D: function "printfcom1" declared implicitly
-  	printfcom1("无法恢复的错误!!!\r\n\r\n");	
-..\USB\USB_APP\usbh_usr.c: 21 warnings, 0 errors
-compiling uartcon.c...
-..\APP\uartcon\uartcon.c(50): warning:  #223-D: function "memcpy" declared implicitly
-  	memcpy((unsigned char *)&codetype,&buf[datalen],sizeof(codetype));
-..\APP\uartcon\uartcon.c(77): warning:  #223-D: function "StoreProInfo_Fram" declared implicitly
-                          StoreProInfo_Fram();
-..\APP\uartcon\uartcon.c(87): warning:  #223-D: function "PrintfRecord" declared implicitly
-                          PrintfRecord(gs_runpara.writerecnum-1);
-..\APP\uartcon\uartcon.c(96): warning:  #111-D: statement is unreachable
-                          break;
-..\APP\uartcon\uartcon.c(41): warning:  #177-D: variable "resflg"  was declared but never referenced
-  	unsigned char  resflg = 1;
-..\APP\uartcon\uartcon.c(110): warning:  #223-D: function "MX25L1602_RD" declared implicitly
-      MX25L1602_RD(addr,sizeof(stcrecord),(u8 *)&srecord );       //取数据
-..\APP\uartcon\uartcon.c(124): warning:  #223-D: function "SendDataCom1" declared implicitly
-      SendDataCom1(probuf,probuflen);                        //发送数据包
-..\APP\uartcon\uartcon.c(135): warning:  #223-D: function "HoldUartRecSta" declared implicitly
-      HoldUartRecSta();           //串口状态查询
-..\APP\uartcon\uartcon.c(137): warning:  #223-D: function "ReadUartBuf" declared implicitly
-      u32 reclen = ReadUartBuf(recbuf,sizeof(recbuf));
-..\APP\uartcon\uartcon.c(178): warning:  #1-D: last line of file ends without a newline
-  }
-..\APP\uartcon\uartcon.c: 10 warnings, 0 errors
+..\HARDWARE\LED\led.c: 8 warnings, 0 errors
 linking...
-Program Size: Code=115194 RO-data=10918 RW-data=1432 ZI-data=1230552  
+Program Size: Code=114914 RO-data=10918 RW-data=1432 ZI-data=1230552  
 FromELF: creating hex file...
-After Build - User command #1: CC\bin\fromelf.exe  --bin -o  "..\OBJ\UDISK.bin" "..\OBJ\UDISK.axf"
-*** Error: CreateProcess failed, Command: 'CC\bin\fromelf.exe  --bin -o  "..\OBJ\UDISK.bin" "..\OBJ\UDISK.axf"'
-"..\OBJ\UDISK.axf" - 1 Error(s), 200 Warning(s).
+After Build - User command #1: C:\Keil_v5\ARM\ARMCC\bin\fromelf.exe  --bin -o  "..\OBJ\UDISK.bin" "..\OBJ\UDISK.axf"
+"..\OBJ\UDISK.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_UDISK
   C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Target not created.
-Build Time Elapsed:  00:00:17
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

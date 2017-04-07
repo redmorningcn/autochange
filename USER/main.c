@@ -149,9 +149,8 @@ u8 USH_User_App(void)
     strcat(storefilename,buf);
     printfcom1("\r\n %s",storefilename);
     
-    
     //
-	while(HCD_IsDeviceConnected(&USB_OTG_Core))         //设备连接成功
+		while(HCD_IsDeviceConnected(&USB_OTG_Core))         //设备连接成功
     {	
         BSP_LED_On(17);                                 //运行指示灯，点亮
         IWDG_ReloadCounter();   //清看门狗  
@@ -188,20 +187,24 @@ u8 USH_User_App(void)
  
 extern uint64_t g_time3cnt;
 
+
+u8	g_equipmenttype = 1;   //0--QX8,1--QX4
+
 int main(void)
 { 
-	u8 t;
-	u8 len;	
-	u16 times=0;
+    u8 t;
+    u8 len;	
+    u16 times=0;
 
+	
     iwdg_init();    //看门狗
     
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//设置系统中断优先级分组2
-	delay_init(168);		//延时初始化 
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//设置系统中断优先级分组2
+    delay_init(168);		//延时初始化 
     
     delay_ms(10);
 
-	uart_init(57600);	    //串口初始化波特率为57600
+    uart_init(57600);	    //串口初始化波特率为57600
 
     EnUartContrlIO_Init();
 
@@ -219,7 +222,7 @@ int main(void)
 
     EXTIX_Init();   
     
-	LED_Init();                     //初始化与LED连接的硬件接口 
+    LED_Init();                     //初始化与LED连接的硬件接口 
     
     BSP_LED_Init();
 

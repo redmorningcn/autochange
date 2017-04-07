@@ -351,7 +351,8 @@ u8  g_ch1outnum = 0;    //默认为0+1通道
 u8  g_ch2outnum = 1;    //默认为1+1通道
 
 extern  u32 g_time3cnt;
-void    BSP_LED_Dis(void)
+
+void    BSP_LED_Dis_QX8(void)
 {
     static  u32 systime;
     u8      i = 0;
@@ -359,11 +360,10 @@ void    BSP_LED_Dis(void)
 //    if(g_time3cnt - systime > 500 )      //50ms
     {
         systime = g_time3cnt;
-        //printf("\r\n systime %d",g_time3cnt);
-        
-//        g_ch1outnum = 6;
-//        g_ch2outnum = 7;
-        
+
+
+
+      
         for(i = 0;i <8 ;i++)
         {
             //if ( gs_pulsech[i].flg & (0x01 << CH_IN) ) {
@@ -420,6 +420,159 @@ void    BSP_LED_Dis(void)
     }   
 }
 
+
+void    BSP_LED_Dis_QX4(void)
+{
+    static  u32 systime;
+    u8      i = 0;
+    
+    //printfcom1("\r\n ");
+    //for(i = 0;i < 8;i++)
+    //printfcom1(" gs_p[%d] %x",i,gs_pulsech[i].flg);
+    {
+        systime = g_time3cnt;
+
+        for(i = 0;i <8 ;i++){
+
+            if(i==2 || i== 3|| i == 6 || i == 7)    //QX4无效通道
+                continue;
+            
+            if (      ( gs_pulsech[i].flg & (0x01 << CH_OK)) 
+                      &&  (gs_pulsech[i].flg & (0x01 << CH_IN) )) {
+                if ( i == gs_selch.selch1num || i == gs_selch.selch2num){
+                    switch (i)
+                    {
+                        case 0:
+                                BSP_LED_Toggle(2);//第2个灯亮,QX4的第1个灯
+                                break;
+                        case 1:
+                                BSP_LED_Toggle(4);//第4个灯亮，QX4的第2个灯
+                                break;
+                        case 4:
+                                BSP_LED_Toggle(6);//第6个灯亮，QX4的第3个灯
+                                break;
+                        case 5:
+                                BSP_LED_Toggle(8);//第8个灯亮，QX4的第4个灯
+                                break;
+                        default:;
+                    }
+                } else {    
+                    //if((i != gs_selch.selch1num) && (i != gs_selch.selch2num) ){
+                        switch (i){
+                            case 0:
+                                    BSP_LED_On(2); //第2个灯亮
+                                    break;
+                            case 1:
+                                    BSP_LED_On(4);//第4个灯亮
+                                    break;
+                            case 4:
+                                    BSP_LED_On(6);//第6个灯亮
+                                    break;
+                            case 5:
+                                    BSP_LED_On(8);//第8个灯亮
+                                    break;
+                            default:;
+                        }                            
+                    //}
+                }
+            }else{
+                switch (i){
+                    case 0:
+                            BSP_LED_Off(2); //第2个灯亮
+                            break;
+                    case 1:
+                            BSP_LED_Off(4);//第4个灯亮
+                            break;
+                    case 4:
+                            BSP_LED_Off(6);//第6个灯亮
+                            break;
+                    case 5:
+                            BSP_LED_Off(8);//第8个灯亮
+                            break;
+                    default:;
+                }  
+            }                
+            
+            //////////////停车也亮通道选择灯
+            if (   ((gs_runpara.flg & (0x01<< RUN_FLG)) == 0)
+                 &&((i == gs_selch.selch1num) ||( i == gs_selch.selch2num)) 
+                ){
+                    switch (i){
+                    case 0:
+                            BSP_LED_On(2); //第2个灯亮
+                            break;
+                    case 1:
+                            BSP_LED_On(4);//第4个灯亮
+                            break;
+                    case 4:
+                            BSP_LED_On(6);//第6个灯亮
+                            break;
+                    case 5:
+                            BSP_LED_On(8);//第8个灯亮
+                            break;
+                    default:;
+                }                                          
+            } 
+                /////////////////////////////////            
+        }       
+        stcchpulse  *p  = &gs_pulsech[0];
+        
+        //故障
+        for( u8 i = 0; i < 8; i++, p++ ) {    
+            if(i==2 || i== 3 || i == 6 || i == 7)
+            continue;
+
+            if(         ((p->flg & (0x01 << CH_ERR_LOSE)) 
+                    ||  (p->flg & (0x01 << CH_ERR_FRQ)) ) 
+              ){
+                switch (i){
+                    case 0:
+                            BSP_LED_On(9+1); //第2个灯亮
+                            break;
+                    case 1:
+                            BSP_LED_On(9+3);//第4个灯亮
+                            break;
+                    case 4:
+                            BSP_LED_On(9+5);//第6个灯亮
+                            break;
+                    case 5:
+                            BSP_LED_On(9+7);//第8个灯亮
+                            break;
+                    default:;
+                }                   
+            }else{
+                switch (i)
+                {
+                    case 0:
+                            BSP_LED_Off(9+1); //第2个灯亮
+                            break;
+                    case 1:
+                            BSP_LED_Off(9+3);//第4个灯亮
+                            break;
+                    case 4:
+                            BSP_LED_Off(9+5);//第6个灯亮
+                            break;
+                    case 5:
+                            BSP_LED_Off(9+7);//第8个灯亮
+                            break;
+                    default:;
+                }                 
+            }  
+        }
+    }
+        BSP_LED_Toggle(17);
+}
+
+extern u8 g_equipmenttype;
+void    BSP_LED_Dis(void)
+{
+    if(g_equipmenttype == 1){
+        BSP_LED_Dis_QX4();
+    }else{
+        BSP_LED_Dis_QX8();
+    }
+}
+
 /** Configure pins as 
         * Analog 
         * Input 
@@ -431,10 +584,10 @@ void BSP_Sel_GPIO_Init(void)
 {
     GPIO_InitTypeDef  gpio_init;
 
-    gpio_init.GPIO_Mode     = GPIO_Mode_OUT;        //普通输出模式
-    gpio_init.GPIO_OType    = GPIO_OType_PP;        //推挽输出
-    gpio_init.GPIO_Speed    = GPIO_Speed_100MHz;    //100MHz
-    gpio_init.GPIO_PuPd     = GPIO_PuPd_NOPULL;       //下拉    
+    gpio_init.GPIO_Mode     = GPIO_Mode_OUT;        //  普通输出模式
+    gpio_init.GPIO_OType    = GPIO_OType_PP;        //  推挽输出
+    gpio_init.GPIO_Speed    = GPIO_Speed_100MHz;    //  100MHz
+    gpio_init.GPIO_PuPd     = GPIO_PuPd_NOPULL;     //  下拉    
     gpio_init.GPIO_Pin      = GPIO_Pin_3 
                             | GPIO_Pin_4 
                             | GPIO_Pin_5
